@@ -16,12 +16,13 @@ const type = require('./database/types/type');
 const testRouter = require('./routes/testRouter.js');
 // Init
 const app = express();
--
+
 // ====================================
 //             Configuration
 // ====================================
 
 app.engine('handlebars', hbs.engine);
+
 app.set('view engine', 'handlebars');
 
 // config.env
@@ -74,8 +75,8 @@ app.get('/', (req, res) => {
 //          Error Handling
 // ====================================
 app.use(async (err, req, res, next) => {
-	console.log('An error happened');
-	console.log(err);
+	console.log('An error happened: ' + err);
+	res.render('error', { err });
 });
 
 // ====================================

@@ -14,8 +14,7 @@ testRouter.get('/:type', async (req, res, next) => {
 	let myType = await type
 		.findOne({
 			name: typeName,
-		})
-		.exec();
+		}).exec();
 	res.render('test', { myType });
 });
 

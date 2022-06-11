@@ -1,7 +1,7 @@
 {{!-- Type name --}}
 {{!-- Type name --}}
 {{!-- Type name --}}
-<h1>{{toUpperCase myType.name}}</h1>
+<h1><u>{{toUpperCase myType.name}}</u></h1>
 
 {{!-- Weak against --}}
 {{!-- Weak against --}}
@@ -23,12 +23,23 @@
   {{/each}}
 </ul>
 
-{{!-- Resistant to --}}
-{{!-- Resistant to --}}
-{{!-- Resistant to --}}
-<h2>Resistant to</h2>
+
+{{!-- No Effect From --}}
+{{!-- No Effect From --}}
+{{!-- No Effect From --}}
+<h2>No Effect From</h2>
 <ul class="people_list">
-  {{#each myType.resistantTo as |typeResistantTo i|}}
-    <li>{{toUpperCase (typeResistantTo)}}</li>
+  {{#each myType.noEffectFrom as |noEffectFrom i|}}
+    <li>{{toUpperCase (noEffectFrom)}}</li>
+  {{/each}}
+</ul>
+
+{{!-- No Effect Against --}}
+{{!-- No Effect Against --}}
+{{!-- No Effect Against --}}
+<h2>No Effect Against</h2>
+<ul class="people_list">
+  {{#each myType.noEffectAgainst as |noEffectAgainst i|}}
+    <li>{{toUpperCase (noEffectAgainst)}}</li>
   {{/each}}
 </ul>

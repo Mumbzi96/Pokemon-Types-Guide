@@ -12,8 +12,8 @@ const typeSchema = new Schema({
 	name: { type: String, required: true },
 	weakAgainst: { type: [String] },
 	strongAgainst: { type: [String] },
-	resistantTo: { type: [String] },
-	normalEffect: { type: [String] },
+	noEffectFrom: { type: [String] },
+	noEffectAgainst: { type: [String] },
 });
 
 // model

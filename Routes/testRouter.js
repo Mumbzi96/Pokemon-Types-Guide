@@ -3,13 +3,20 @@
 // ====================================
 const express = require('express');
 const testRouter = express.Router();
-
+// Database models
+const type = require('../database/types/type');
 // ====================================
 //                Main
 // ====================================
 
-testRouter.get('/', async (req, res, next) => {
-	res.render('test', { message: 'Testing' });
+testRouter.get('/:type', async (req, res, next) => {
+	let typeName = req.params.type.toLowerCase();
+	let myType = await type
+		.findOne({
+			name: typeName,
+		})
+		.exec();
+	res.render('test', { myType });
 });
 
 //========================

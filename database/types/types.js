@@ -1,16 +1,16 @@
 const types=[
     {
-        name:'Normal',
-        weakAgainst:['Rock', 'Ghost', 'Steel','Fighting'],
+        name:'normal',
+        weakAgainst:['rock', 'ghost', 'steel','fighting'],
         strongAgainst:[],
-        ResistantTo:['Ghost'],
+        resistantTo:['ghost'],
         normalEffect:[]
     },
     {
-        name:'Fighting',
-        weakAgainst:['Flying', 'Poison', 'Psychic', 'Bug', 'Ghost', 'Fairy','Flying', 'Psychic', 'Fairy'],
-        strongAgainst:['Normal', 'Rock', 'Steel', 'Ice', 'Dark'],
-        ResistantTo:['Rock', 'Bug', 'Dark'],
+        name:'fighting',
+        weakAgainst:['flying', 'poison', 'psychic', 'bug', 'ghost', 'fairy','flying', 'psychic', 'fairy'],
+        strongAgainst:['normal', 'rock', 'steel', 'ice', 'dark'],
+        resistantTo:['rock', 'bug', 'dark'],
         normalEffect:[]
     },
 ];

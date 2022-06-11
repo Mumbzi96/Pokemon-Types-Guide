@@ -1,1 +1,35 @@
-{{message}}
+{{!-- Type name --}}
+{{!-- Type name --}}
+{{!-- Type name --}}
+
+ <h1>{{myType.name}}</h1>
+
+{{!-- Weak against --}}
+{{!-- Weak against --}}
+{{!-- Weak against --}}
+<h2>Weak Against</h2>
+<ul class="people_list">
+  {{#each myType.weakAgainst as |typeWeakTo i|}}
+    <li>{{toUpperCase (typeWeakTo)}}</li>
+  {{/each}}
+</ul>
+
+{{!-- Strong against --}}
+{{!-- Strong against --}}
+{{!-- Strong against --}}
+<h2>Strong Against</h2>
+<ul class="people_list">
+  {{#each myType.strongAgainst as |typeStrongAgainst i|}}
+    <li>{{toUpperCase (typeStrongAgainst)}}</li>
+  {{/each}}
+</ul>
+
+{{!-- Resistant to --}}
+{{!-- Resistant to --}}
+{{!-- Resistant to --}}
+<h2>Resistant to</h2>
+<ul class="people_list">
+  {{#each myType.resistantTo as |typeResistantTo i|}}
+    <li>{{toUpperCase (typeResistantTo)}}</li>
+  {{/each}}
+</ul>

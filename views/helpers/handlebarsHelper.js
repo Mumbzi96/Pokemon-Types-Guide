@@ -8,7 +8,17 @@ hbs = handlebars.create({
 		allowProtoMethodsByDefault: true,
 	},
 	helpers: {
-	}
+		toUpperCase: function (title) {
+			console.log(title)
+			if (!title) return '';
+			// capitalizing the first letter in its own string
+			let capitalized = title[0].toUpperCase();
+			// slicing the title from after it's first letter
+			let small = title.slice(1, title.length);
+			// Returning both
+			return capitalized + small;
+		},
+	},
 });
 
 module.exports = hbs;

@@ -1,5 +1,43 @@
-<ul style="display:inline">
-  {{#each typesList as |type i|}}
-    <a href="{{createLink 'test' type.name}}"><li>{{toUpperCase type.name}}</li></a>
-  {{/each}}
-</ul>
+{{!-- Looping types list --}}
+{{!-- Looping types list --}}
+{{!-- Looping types list --}}
+<div>
+  <ul class="mainMenu">
+    {{#each typesList as |type i|}}
+    <li><a href="{{createLink 'test' type.name}}">{{toUpperCase type.name}}</a></li>
+    {{/each}}
+  </ul> 
+</div>
+<br><br><br><br>
+
+{{!-- style --}}
+{{!-- style --}}
+{{!-- style --}}
+<style>
+.mainMenu {
+	margin:10px;
+	width:900px;
+	font-family: sans-serif;
+}
+.mainMenu li {
+	display:block;
+	width:120px;
+	float:left;
+	margin-left:2px;
+	border:1px solid #000;
+}
+
+.mainMenu a {
+	display:block;
+	padding:3px;
+	text-decoration:none;
+	background-color:#fff;
+	color:#009;
+}
+
+.mainMenu a:hover {
+	background-color:#009;
+	color:#fff;
+}
+
+</style>

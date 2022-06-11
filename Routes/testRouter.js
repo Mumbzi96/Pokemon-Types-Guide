@@ -10,15 +10,8 @@ const type = require('../database/types/type');
 //                Main
 // ====================================
 
-testRouter.get('/:type', async (req, res, next) => {
-	let typeName = req.params.type.toLowerCase();
-	let myType = await type
-		.findOne({
-			name: typeName,
-		}).exec();
-	const typesList = await type.find().exec();
-
-	res.render('test', { myType, typesList });
+testRouter.get('/', async (req, res, next) => {
+	res.render('test',{message:'Test page'});
 });
 
 //========================

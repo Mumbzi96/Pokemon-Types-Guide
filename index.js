@@ -14,6 +14,7 @@ const hbs = require('./views/helpers/handlebarsHelper');
 const type = require('./database/types/type');
 // Routers
 const testRouter = require('./routes/testRouter.js');
+const typesRouter = require('./routes/typesRouter.js');
 // Init
 const app = express();
 
@@ -64,10 +65,12 @@ app.use((req, res, next) => {
 //             Routing
 // ====================================
 app.use('/test', testRouter);
+app.use('/type', typesRouter);
 
-app.get('/', (req, res) => {
-	let obj = 'Hello World';
-	res.render('home', { obj });
+app.get('/', async (req, res) => {
+	// Getting types
+	const typesList = await type.find().exec();
+	res.render('home', { typesList });
 });
 
 // ====================================

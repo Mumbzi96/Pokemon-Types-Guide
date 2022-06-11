@@ -17,6 +17,9 @@ hbs = handlebars.create({
 			// Returning both
 			return capitalized + small;
 		},
+		createLink: function (mainPage, subPage) {
+			return `/${mainPage}/${subPage}`;
+		},
 		otherMethod: function () {
 			
 		}

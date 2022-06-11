@@ -1,0 +1,5 @@
+<ul style="display:inline">
+  {{#each typesList as |type i|}}
+    <a href="{{createLink 'test' type.name}}"><li>{{toUpperCase type.name}}</li></a>
+  {{/each}}
+</ul>

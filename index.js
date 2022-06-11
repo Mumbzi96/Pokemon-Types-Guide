@@ -22,7 +22,6 @@ const app = express();
 // ====================================
 
 app.engine('handlebars', hbs.engine);
-
 app.set('view engine', 'handlebars');
 
 // config.env

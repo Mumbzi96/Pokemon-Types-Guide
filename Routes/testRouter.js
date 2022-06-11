@@ -5,6 +5,7 @@ const express = require('express');
 const testRouter = express.Router();
 // Database models
 const type = require('../database/types/type');
+
 // ====================================
 //                Main
 // ====================================
@@ -15,7 +16,9 @@ testRouter.get('/:type', async (req, res, next) => {
 		.findOne({
 			name: typeName,
 		}).exec();
-	res.render('test', { myType });
+	const typesList = await type.find().exec();
+
+	res.render('test', { myType, typesList });
 });
 
 //========================

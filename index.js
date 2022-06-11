@@ -7,6 +7,7 @@ const path = require('path');
 const handlebars = require('express-handlebars'); // Normal npm package
 const dotenv = require('dotenv');
 const moment = require('moment');
+const mongoose = require('mongoose');
 // Project Modules
 const hbs = require('./views/helpers/handlebarsHelper');
 // Routers
@@ -21,14 +22,26 @@ const app = express();
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
-// ====================================
-//             Middleware
-// ====================================
-
 // Configuration
 dotenv.config({
 	path: './configuration/config.env',
 });
+
+//MongoDB
+mongoose
+	.connect(process.env.MONGO_URI, {
+		useNewUrlParser: true,
+		useUnifiedTopology: true,
+		dbName: process.env.DATABASE_NAME,
+	})
+	.then(console.log('Connected to mongo'))
+	.catch((error) => console.log(error));
+
+// ====================================
+//             Middleware
+// ====================================
+
+
 
 // Body parser
 app.use(express.json()); //To use body parser for JSON
@@ -50,14 +63,12 @@ app.use((req, res, next) => {
 // ====================================
 //             Routing
 // ====================================
-app.use('/test',testRouter)
+app.use('/test', testRouter);
 
 app.get('/', (req, res) => {
 	let obj = 'Hello World';
 	res.render('home', { obj });
 });
-
-
 
 // ====================================
 //          Error Handling

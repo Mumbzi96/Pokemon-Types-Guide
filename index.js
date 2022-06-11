@@ -10,11 +10,13 @@ const moment = require('moment');
 const mongoose = require('mongoose');
 // Project Modules
 const hbs = require('./views/helpers/handlebarsHelper');
+// Database models
+const type = require('./database/types/type');
 // Routers
 const testRouter = require('./routes/testRouter.js');
 // Init
 const app = express();
-
+-
 // ====================================
 //             Configuration
 // ====================================
@@ -22,7 +24,7 @@ const app = express();
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
-// Configuration
+// config.env
 dotenv.config({
 	path: './configuration/config.env',
 });
@@ -40,8 +42,6 @@ mongoose
 // ====================================
 //             Middleware
 // ====================================
-
-
 
 // Body parser
 app.use(express.json()); //To use body parser for JSON

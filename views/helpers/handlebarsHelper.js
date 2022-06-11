@@ -9,7 +9,6 @@ hbs = handlebars.create({
 	},
 	helpers: {
 		toUpperCase: function (title) {
-			console.log(title)
 			if (!title) return '';
 			// capitalizing the first letter in its own string
 			let capitalized = title[0].toUpperCase();
@@ -18,6 +17,9 @@ hbs = handlebars.create({
 			// Returning both
 			return capitalized + small;
 		},
+		otherMethod: function () {
+			
+		}
 	},
 });
 

@@ -1,6 +1,6 @@
 {
   "name": "pokemon",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Pokemon guide",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "dev":"nodemon index.js"
   },
   "keywords": [
-    "pokemon"
+    "pokemon","types","pokemon types"
   ],
   "author": "Omar Hammoud",
   "license": "ISC",

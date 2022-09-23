@@ -13,7 +13,7 @@ const hbs = require('./views/helpers/handlebarsHelper');
 // Database models
 const type = require('./database/types/type');
 // Routers
-const testRouter = require('./routes/testRouter.js');
+// const testRouter = require('./routes/testRouter.js');
 const typesRouter = require('./routes/typesRouter.js');
 // Init
 const app = express();

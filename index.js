@@ -64,7 +64,7 @@ app.use((req, res, next) => {
 // ====================================
 //             Routing
 // ====================================
-app.use('/test', testRouter);
+// app.use('/test', testRouter);
 app.use('/type', typesRouter);
 
 app.get('/', async (req, res) => {

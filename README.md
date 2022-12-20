@@ -11,32 +11,12 @@ Currently this only shows the types in the most basic way and to be honest, that
 
 - [PokemonDB](https://pokemondb.net/type)
 
-## Future plans
-
-- An actual interface
-- Icons
-
-# Running the project
-
-So ideally, non developers won't use this, but I'll include an easy explanation and a more advanced one (later on).
-
-## The easiest way
-
-### Prerequisites
-
-- [NodeJS](https://nodejs.org/en/download/)
-- [MongoDB Community Server | Download as a zip file ](https://www.mongodb.com/try/download/community)
-
-### What to do
-
-1. Download the project by pressing on the "Code" in the project's main page
-2. Download as a zip file
-3. On your PC, go to "Documents"
-4. Create a folder called EXACTLY "GitHub" without the " " of course.
-5. Create a folder called "Pokemon"
-6. Extract the files there
-7. In the project, there's a ".ps1" file, just run it USING POWERSHELL or a terminal, I don't think command prompt will do the job, and I'm too lazy to test.
-8. Now your project should be running
+# Using it
+1- You'll need node and mongodb locally (unless you're creating an online cluster on mongodb cloud)
+2- Download this project
+3- Go to the project's directory in your terminal
+4- "npm i" in the terminal
+5- Make a config.env file in the configuration folder. You can use the configSample.env file for help
 
 # Code Documentation
 

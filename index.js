@@ -69,8 +69,7 @@ app.use('/type', typesRouter);
 
 app.get('/', async (req, res) => {
 	// Getting types
-	const typesList = await type.find().exec();
-	res.render('home', { typesList });
+	res.redirect('/type/normal')
 });
 
 // ====================================
@@ -78,7 +77,7 @@ app.get('/', async (req, res) => {
 // ====================================
 app.use(async (err, req, res, next) => {
 	console.log('An error happened: ' + err);
-	res.render('error', { err });
+	res.render('other/error', { err });
 });
 
 // ====================================

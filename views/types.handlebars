@@ -1,50 +1,50 @@
-{{!-- Main Menu --}}
-{{!-- Main Menu --}}
-{{!-- Main Menu --}}
-{{> layout/typesList}}
 
 {{!-- Type name --}}
 {{!-- Type name --}}
 {{!-- Type name --}}
-<h1><u>{{toUpperCase myType.name}}</u></h1>
+<div class="card m-3">
+  <div class="card-body">
+    <h1><u>{{toUpperCase myType.name}}</u></h1>
 
-{{!-- Weak against --}}
-{{!-- Weak against --}}
-{{!-- Weak against --}}
-<h2>Weak Against</h2>
-<ul class="people_list">
-  {{#each myType.weakAgainst as |typeWeakTo i|}}
-    <li>{{toUpperCase (typeWeakTo)}}</li>
-  {{/each}}
-</ul>
+    {{!-- Weak against --}}
+    {{!-- Weak against --}}
+    {{!-- Weak against --}}
+    <h2>Weak Against</h2>
+    <ul class="people_list">
+      {{#each myType.weakAgainst as |typeWeakTo i|}}
+      <li>{{toUpperCase (typeWeakTo)}}</li>
+      {{/each}}
+    </ul>
 
-{{!-- Strong against --}}
-{{!-- Strong against --}}
-{{!-- Strong against --}}
-<h2>Strong Against</h2>
-<ul class="people_list">
-  {{#each myType.strongAgainst as |typeStrongAgainst i|}}
-    <li>{{toUpperCase (typeStrongAgainst)}}</li>
-  {{/each}}
-</ul>
+    {{!-- Strong against --}}
+    {{!-- Strong against --}}
+    {{!-- Strong against --}}
+    <h2>Strong Against</h2>
+    <ul class="people_list">
+      {{#each myType.strongAgainst as |typeStrongAgainst i|}}
+      <li>{{toUpperCase (typeStrongAgainst)}}</li>
+      {{/each}}
+    </ul>
 
 
-{{!-- No Effect From --}}
-{{!-- No Effect From --}}
-{{!-- No Effect From --}}
-<h2>No Effect From</h2>
-<ul class="people_list">
-  {{#each myType.noEffectFrom as |noEffectFrom i|}}
-    <li>{{toUpperCase (noEffectFrom)}}</li>
-  {{/each}}
-</ul>
+    {{!-- No Effect From --}}
+    {{!-- No Effect From --}}
+    {{!-- No Effect From --}}
+    <h2>No Effect From</h2>
+    <ul class="people_list">
+      {{#each myType.noEffectFrom as |noEffectFrom i|}}
+      <li>{{toUpperCase (noEffectFrom)}}</li>
+      {{/each}}
+    </ul>
 
-{{!-- No Effect Against --}}
-{{!-- No Effect Against --}}
-{{!-- No Effect Against --}}
-<h2>No Effect Against</h2>
-<ul class="people_list">
-  {{#each myType.noEffectAgainst as |noEffectAgainst i|}}
-    <li>{{toUpperCase (noEffectAgainst)}}</li>
-  {{/each}}
-</ul>
+    {{!-- No Effect Against --}}
+    {{!-- No Effect Against --}}
+    {{!-- No Effect Against --}}
+    <h2>No Effect Against</h2>
+    <ul class="people_list">
+      {{#each myType.noEffectAgainst as |noEffectAgainst i|}}
+      <li>{{toUpperCase (noEffectAgainst)}}</li>
+      {{/each}}
+    </ul>
+  </div>
+</div>

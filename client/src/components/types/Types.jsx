@@ -8,10 +8,14 @@ import Type from "./Type";
 // import data from "../../data/pokemon_types.json";
 // CSS
 import "./Types.css";
+// SVG
+import spinner from "../../assets/other/spinner-solid.svg";
 
 function Types() {
 	const [typeView, setTypeView] = useState();
+	const [typeViewLoading, setTypeViewLoading] = useState(false);
 	const [types, setTypes] = useState([]);
+	const [typesLoading, setTypesLoading] = useState(true);
 
 	useEffect(() => {
 		async function getTypes() {
@@ -19,13 +23,10 @@ function Types() {
 			fetch("/api/types")
 				.then((data) => data.json())
 				.then((data) => {
-					setTypes(() => {
-						return data;
-					});
+					setTypesLoading(false);
+					setTypes(data);
 				})
 				.catch((err) => console.log(err));
-			// let typesData = await typesResponse.json();
-			// return typesData;
 		}
 
 		getTypes();
@@ -37,6 +38,9 @@ function Types() {
 		fetch(`/api/types/${type}`)
 			.then((data) => data.json())
 			.then((data) => {
+				//
+
+				//
 				setTypeView(() => {
 					return data;
 				});
@@ -110,20 +114,27 @@ function Types() {
 
 			{/* MAPPING TYPES */}
 			{/* MAPPING TYPES */}
-			<Card style={cardViewStyle} bordered={true}>
-				<Row>
-					{types.map((type) => {
-						return (
-							<Fragment key={type.name}>
-								<Col span={3}>
-									<Type showDetails={showDetails} type={type} />
-									<Divider />
-								</Col>
-							</Fragment>
-						);
-					})}
-				</Row>
-			</Card>
+			{typesLoading == false ? (
+				<Card style={cardViewStyle} bordered={true}>
+					<Row>
+						{types.map((type) => {
+							return (
+								<Fragment key={type.name}>
+									<Col span={3}>
+										<Type showDetails={showDetails} type={type} />
+										<Divider />
+									</Col>
+								</Fragment>
+							);
+						})}
+					</Row>
+				</Card>
+			) : (
+				<>
+					<img src={spinner} width='150px' />
+				</>
+			)}
+
 			{/* </Space> */}
 		</>
 	);

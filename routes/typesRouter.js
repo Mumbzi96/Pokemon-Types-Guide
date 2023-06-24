@@ -12,13 +12,13 @@ const type = require("../database/types/type");
 typesRouter.get("/", async (req, res, next) => {
 	// Getting the types' names
 	let types = await type.find({}, "name").exec();
-
 	// Response
 	res.json(types);
 });
 
 typesRouter.get("/:type", async (req, res, next) => {
 	// Getting types
+	console.log("getting type")
 	const typesList = await type.find().exec();
 
 	// Switching type to lower case

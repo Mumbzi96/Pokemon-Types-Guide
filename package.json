@@ -4,15 +4,20 @@
   "description": "Pokemon guide",
   "main": "index.js",
   "scripts": {
-    "start":"node index.js",
-    "dev":"nodemon index.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "client":"cd client && npm run dev",
+    "devFull": "concurrently \"npm run dev\"  \"npm run client\" "
   },
   "keywords": [
-    "pokemon","types","pokemon types"
+    "pokemon",
+    "types",
+    "pokemon types"
   ],
   "author": "Omar Hammoud",
   "license": "ISC",
   "dependencies": {
+    "concurrently": "^8.2.0",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "express-handlebars": "^6.0.6",

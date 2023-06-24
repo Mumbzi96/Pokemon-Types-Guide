@@ -69,7 +69,7 @@ app.use('/type', typesRouter);
 
 app.get('/', async (req, res) => {
 	// Getting types
-	res.redirect('/type/normal')
+	res.send('')
 });
 
 // ====================================

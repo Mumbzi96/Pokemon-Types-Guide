@@ -26,7 +26,7 @@ dotenv.config({
 
 //MongoDB
 mongoose
-	.connect(process.env.MONGO_LOCAL_URI, {
+	.connect(process.env.MONGO_URI, {
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
 		dbName: process.env.DATABASE_NAME,

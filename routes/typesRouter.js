@@ -12,7 +12,7 @@ const type = require("../database/types/type");
 typesRouter.get("/", async (req, res, next) => {
 	// Getting the types' names
 	let types = await type.find({}, "name").exec();
-	
+
 	// Response
 	res.json(types);
 });
@@ -31,8 +31,11 @@ typesRouter.get("/:type", async (req, res, next) => {
 		})
 		.exec();
 
+	// Response
+	res.json(myType);
+
 	// Rendering
-	res.render("typesDetails", { myType, typesList });
+	// res.render("typesDetails", { myType, typesList });
 });
 
 //========================

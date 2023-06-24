@@ -48,17 +48,10 @@ function Type(props) {
 		steel,
 		water,
 	};
-	const { name, weakAgainst, strongAgainst, noEffectFrom, noEffectAgainst } =
-		props.type;
+	const { name } = props.type;
 
 	const showDetails = () => {
-		props.showDetails({
-			name,
-			weakAgainst,
-			strongAgainst,
-			noEffectFrom,
-			noEffectAgainst,
-		});
+		props.showDetails(name);
 	};
 	return (
 		<div onClick={showDetails}>

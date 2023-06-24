@@ -5,7 +5,7 @@ import { Divider, Space, Card } from "antd";
 import { Col, Row } from "antd";
 // Components
 import Type from "./Type";
-import data from "../../data/pokemon_types.json";
+// import data from "../../data/pokemon_types.json";
 // CSS
 import "./Types.css";
 
@@ -32,10 +32,17 @@ function Types() {
 		// console.log(getTypes());
 	}, []);
 
-	let showDetails = (type) => {
-		setTypeView(() => {
-			return type;
-		});
+	let showDetails = async (type) => {
+		// Get type data
+		fetch(`/api/types/${type}`)
+			.then((data) => data.json())
+			.then((data) => {
+				setTypeView(() => {
+					return data;
+				});
+			})
+			.catch((err) => console.log(err));
+		//
 	};
 
 	let clearDetails = () => {

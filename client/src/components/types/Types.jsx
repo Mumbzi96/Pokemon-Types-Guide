@@ -11,7 +11,7 @@ import "./Types.css";
 // SVG
 // font/fort awesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+import { faSpinner, faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 
 function Types() {
 	const [typeView, setTypeView] = useState();
@@ -84,7 +84,7 @@ function Types() {
 						style={cardViewStyle}
 						className={typeView.name}
 						title={capitalizeFirstLetter(typeView.name)}
-						extra={<label onClick={clearDetails}>X</label>}
+						extra={<FontAwesomeIcon onClick={clearDetails} icon={faCircleXmark} size='2xl' />}
 					>
 						<Row>
 							{/* Strong Against */}

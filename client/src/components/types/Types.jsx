@@ -9,7 +9,9 @@ import Type from "./Type";
 // CSS
 import "./Types.css";
 // SVG
-import spinner from "../../assets/other/spinner-solid.svg";
+// font/fort awesome
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 
 function Types() {
 	const [typeView, setTypeView] = useState();
@@ -30,16 +32,16 @@ function Types() {
 		}
 
 		getTypes();
-		// console.log(getTypes());
 	}, []);
 
 	let showDetails = async (type) => {
+		setTypeViewLoading(true);
 		// Get type data
 		fetch(`/api/types/${type}`)
 			.then((data) => data.json())
 			.then((data) => {
 				//
-
+				setTypeViewLoading(false);
 				//
 				setTypeView(() => {
 					return data;
@@ -51,6 +53,7 @@ function Types() {
 
 	let clearDetails = () => {
 		setTypeView(() => {
+			setTypeViewLoading(false);
 			return null;
 		});
 	};
@@ -63,7 +66,18 @@ function Types() {
 		<>
 			{/* TYPE CARD */}
 			{/* TYPE CARD */}
-			{typeView != null ? (
+			{typeViewLoading == true ? (
+				<Row>
+					<Col span={6}></Col>
+					<Col span={6}></Col>
+					<Col span={6}>
+						<FontAwesomeIcon icon={faSpinner} spinPulse size='2xl' />
+					</Col>
+					<Col span={6}></Col>
+				</Row>
+			) : typeView == null ? (
+				<></>
+			) : (
 				<>
 					<br />
 					<Card
@@ -107,8 +121,6 @@ function Types() {
 						</Row>
 					</Card>
 				</>
-			) : (
-				""
 			)}
 			<br />
 
@@ -130,9 +142,14 @@ function Types() {
 					</Row>
 				</Card>
 			) : (
-				<>
-					<img src={spinner} width='150px' />
-				</>
+				<Row>
+					<Col span={6}></Col>
+					<Col span={6}></Col>
+					<Col span={6}>
+						<FontAwesomeIcon icon={faSpinner} spinPulse size='2xl' />
+					</Col>
+					<Col span={6}></Col>
+				</Row>
 			)}
 
 			{/* </Space> */}

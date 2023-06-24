@@ -4,12 +4,9 @@
 // NPM Modules
 const express = require('express');
 const path = require('path');
-const handlebars = require('express-handlebars'); // Normal npm package
 const dotenv = require('dotenv');
 const moment = require('moment');
 const mongoose = require('mongoose');
-// Project Modules
-const hbs = require('./views/helpers/handlebarsHelper');
 // Database models
 const type = require('./database/types/type');
 // Routers
@@ -21,9 +18,6 @@ const app = express();
 // ====================================
 //             Configuration
 // ====================================
-
-app.engine('handlebars', hbs.engine);
-app.set('view engine', 'handlebars');
 
 // config.env
 dotenv.config({

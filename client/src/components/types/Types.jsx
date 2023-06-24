@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 // antd
 import { Divider, Space, Card } from "antd";
 import { Col, Row } from "antd";
@@ -11,6 +11,26 @@ import "./Types.css";
 
 function Types() {
 	const [typeView, setTypeView] = useState();
+	const [types, setTypes] = useState([]);
+
+	useEffect(() => {
+		async function getTypes() {
+			// Get Types from API
+			fetch("/api/types")
+				.then((data) => data.json())
+				.then((data) => {
+					setTypes(() => {
+						return data;
+					});
+				})
+				.catch((err) => console.log(err));
+			// let typesData = await typesResponse.json();
+			// return typesData;
+		}
+
+		getTypes();
+		// console.log(getTypes());
+	}, []);
 
 	let showDetails = (type) => {
 		setTypeView(() => {
@@ -85,7 +105,7 @@ function Types() {
 			{/* MAPPING TYPES */}
 			<Card style={cardViewStyle} bordered={true}>
 				<Row>
-					{data.map((type) => {
+					{types.map((type) => {
 						return (
 							<Fragment key={type.name}>
 								<Col span={3}>

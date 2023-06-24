@@ -1,16 +1,23 @@
 // ====================================
 //             Requirements
 // ====================================
-const express = require('express');
+const express = require("express");
 const typesRouter = express.Router();
 // Database models
-const type = require('../database/types/type');
+const type = require("../database/types/type");
 
 // ====================================
 //                Main
 // ====================================
+typesRouter.get("/", async (req, res, next) => {
+	// Getting the types' names
+	let types = await type.find({}, "name").exec();
+	
+	// Response
+	res.json(types);
+});
 
-typesRouter.get('/:type', async (req, res, next) => {
+typesRouter.get("/:type", async (req, res, next) => {
 	// Getting types
 	const typesList = await type.find().exec();
 
@@ -23,9 +30,9 @@ typesRouter.get('/:type', async (req, res, next) => {
 			name: typeName,
 		})
 		.exec();
-		
+
 	// Rendering
-	res.render('typesDetails', { myType, typesList });
+	res.render("typesDetails", { myType, typesList });
 });
 
 //========================

@@ -62,17 +62,6 @@ app.use((req, res, next) => {
 // app.use('/test', testRouter);
 app.use('/api/types', typesRouter);
 
-// app.get('/', async (req, res) => {
-// 	// Getting types
-// 	res.send('')
-// });
-
-app.get("*", (req, res) => {
-	res.send()
-})
-
-app.use(express.static(path.join(__dirname, 'react-build')));
-
 // ====================================
 //          Error Handling
 // ====================================

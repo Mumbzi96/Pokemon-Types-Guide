@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "client": "cd client && npm run dev"
+    "client": "cd client && npm run dev",
+    "build": "esbuild ./index.js --bundle --platform=node --target=node14 --outdir=dist"
   },
   "keywords": [
     "pokemon",
@@ -24,5 +25,8 @@
     "mongodb": "^4.7.0",
     "mongoose": "^6.3.6",
     "nodemon": "^2.0.16"
+  },
+  "devDependencies": {
+    "esbuild": "^0.18.10"
   }
 }

@@ -20,8 +20,8 @@ function App() {
 		<BrowserRouter>
 			<Navbar />
 			{/* Nav Link */}
-			<NavLink to='/'>Home</NavLink>
-			<NavLink to='about'>About</NavLink>
+			{/* <NavLink to='/'>Home &ensp;</NavLink>
+			<NavLink to='about'>About</NavLink> */}
 			{/* Body */}
 			<Routes>
 				<Route index element={<><Types /></>} />

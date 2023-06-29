@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import { useState, useEffect } from "react";
 // antd
 import { Divider, Space, Card } from "antd";
+import { Button, Checkbox, Form, Input } from "antd";
 import { Col, Row } from "antd";
 // Components
 import Type from "./Type";
@@ -27,6 +28,7 @@ function Types() {
 				.then((data) => {
 					// Sorting
 					data = sortArray(data, "name");
+					data = addShowProperty(data);
 					// Setting state
 					setTypesLoading(false);
 					setTypes(data);
@@ -85,8 +87,50 @@ function Types() {
 		return arr;
 	};
 
+	// used to add the show property to use for hiding and showing certain types
+	let addShowProperty = (arr) => {
+		for (let i = 0; i < arr.length; i++) {
+			arr[i].show = true;
+		}
+		return arr;
+	};
+
+	let searchTypes = (e) => {
+		let filter = e.target.value.toLowerCase();
+		let filteredTypes = types.map((type) => {
+			if (type.name.toLowerCase().includes(filter)) {
+				return {
+					...type,
+					show: true,
+				};
+			} else {
+				return {
+					...type,
+					show: false,
+				};
+			}
+		});
+		setTypes(filteredTypes);
+	};
+
 	return (
 		<>
+			{/* Search */}
+			{/* Search */}
+			<div>
+				<br/>
+			<Form.Item
+				label='Search'
+				name='type'
+				rules={[
+					{
+						message: "Search for the type directly",
+					},
+				]}
+			>
+				<Input onChange={searchTypes} />
+			</Form.Item>
+			</div>
 			{/* TYPE CARD */}
 			{/* TYPE CARD */}
 			{typeViewLoading == true ? (
@@ -161,10 +205,14 @@ function Types() {
 						{types.map((type) => {
 							return (
 								<Fragment key={type.name}>
-									<Col span={3}>
-										<Type showDetails={showDetails} type={type} />
-										<Divider />
-									</Col>
+									{type.show == true ? (
+										<Col span={3}>
+											<Type showDetails={showDetails} type={type} />
+											<Divider />
+										</Col>
+									) : (
+										<></>
+									)}
 								</Fragment>
 							);
 						})}

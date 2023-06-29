@@ -25,6 +25,13 @@ function Types() {
 			fetch("/api/types")
 				.then((data) => data.json())
 				.then((data) => {
+					// Sorting
+					data = data.sort((a, b) => {
+						if (a.name > b.name) return 1;
+						else if (a.name < b.name) return -1;
+						else return 0;
+					});
+					// Setting state
 					setTypesLoading(false);
 					setTypes(data);
 				})
@@ -84,7 +91,13 @@ function Types() {
 						style={cardViewStyle}
 						className={typeView.name}
 						title={capitalizeFirstLetter(typeView.name)}
-						extra={<FontAwesomeIcon onClick={clearDetails} icon={faCircleXmark} size='2xl' />}
+						extra={
+							<FontAwesomeIcon
+								onClick={clearDetails}
+								icon={faCircleXmark}
+								size='2xl'
+							/>
+						}
 					>
 						<Row>
 							{/* Strong Against */}

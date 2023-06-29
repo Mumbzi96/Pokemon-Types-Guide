@@ -26,11 +26,7 @@ function Types() {
 				.then((data) => data.json())
 				.then((data) => {
 					// Sorting
-					data = data.sort((a, b) => {
-						if (a.name > b.name) return 1;
-						else if (a.name < b.name) return -1;
-						else return 0;
-					});
+					data = sortArray(data, "name");
 					// Setting state
 					setTypesLoading(false);
 					setTypes(data);
@@ -47,6 +43,11 @@ function Types() {
 		fetch(`/api/types/${type}`)
 			.then((data) => data.json())
 			.then((data) => {
+				data.strongAgainst = sortArray(data.strongAgainst);
+				data.weakAgainst = sortArray(data.weakAgainst);
+				data.noEffectFrom = sortArray(data.noEffectFrom);
+				data.noEffectAgainst = sortArray(data.noEffectAgainst);
+
 				//
 				setTypeViewLoading(false);
 				//
@@ -67,6 +68,21 @@ function Types() {
 
 	let capitalizeFirstLetter = (word) => {
 		return word.charAt(0).toUpperCase() + word.slice(1);
+	};
+
+	let sortArray = (arr, property) => {
+		arr = arr.sort((a, b) => {
+			if (property) {
+				if (a[property] > b[property]) return 1;
+				else if (a[property] < b[property]) return -1;
+				else return 0;
+			} else {
+				if (a > b) return 1;
+				else if (a < b) return -1;
+				else return 0;
+			}
+		});
+		return arr;
 	};
 
 	return (

@@ -13,25 +13,30 @@ import Navbar from "./components/layouts/Navbar.jsx";
 import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 // import About from "./pages/About";
 
+// Context
+import { TypesProvider } from "./context/TypesContext.jsx";
+
 function App() {
 	// const [count, setCount] = useState(0)
 
 	return (
-		<BrowserRouter>
-			<Navbar />
-			<Routes>
-				<Route
-					index
-					element={
-						<>
-							<Types />
-						</>
-					}
-				/>
-				<Route path='about' element={<About />} />
-			</Routes>
-			<Footer style={footerStyle}>Made for fun</Footer>
-		</BrowserRouter>
+		<TypesProvider>
+			<BrowserRouter>
+				<Navbar />
+				<Routes>
+					<Route
+						index
+						element={
+							<>
+								<Types />
+							</>
+						}
+					/>
+					<Route path='about' element={<About />} />
+				</Routes>
+				<Footer style={footerStyle}>Made for fun</Footer>
+			</BrowserRouter>
+		</TypesProvider>
 	);
 }
 

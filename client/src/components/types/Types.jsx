@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useContext } from "react";
 import { useState, useEffect } from "react";
 // antd
 import { Divider, Space, Card } from "antd";
@@ -14,11 +14,18 @@ import "./Types.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner, faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 
+// Context
+import { TypesContext } from "../../context/TypesContext";
+
 function Types() {
-	const [typeView, setTypeView] = useState();
-	const [typeViewLoading, setTypeViewLoading] = useState(false);
+	// const [typeView, setTypeView] = useState();
+	// const [typeViewLoading, setTypeViewLoading] = useState(false);
+	const [typeView, setTypeView] = useContext(TypesContext);
+	const [typeViewLoading, setTypeViewLoading] = useContext(TypesContext);
 	const [types, setTypes] = useState([]);
 	const [typesLoading, setTypesLoading] = useState(true);
+
+	//
 
 	// component did mount
 	useEffect(() => {

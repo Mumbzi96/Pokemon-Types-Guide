@@ -18,7 +18,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner, faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 
 // Context
-import { TypesContext } from "../../context/TypesContext";
+import { TypeViewContext } from "../../context/TypeViewContext";
 
 //=============================================
 //					Main
@@ -29,9 +29,9 @@ function Types() {
 	//	  Properties
 	//==================
 	// Context
-	const { typeView, setTypeView } = useContext(TypesContext);
-	const { typeViewLoading, setTypeViewLoading } = useContext(TypesContext);
-	const { sortArray } = useContext(TypesContext);
+	const { typeView } = useContext(TypeViewContext);
+	const { typeViewLoading } = useContext(TypeViewContext);
+	const { sortArray, clearDetails } = useContext(TypeViewContext);
 	// State
 	const [types, setTypes] = useState([]);
 	const [typesLoading, setTypesLoading] = useState(true);
@@ -59,13 +59,7 @@ function Types() {
 		getTypes();
 	}, []);
 
-	let clearDetails = () => {
-		setTypeView(() => {
-			setTypeViewLoading(false);
-			return null;
-		});
-	};
-
+	// used to capitalize letter of types
 	let capitalizeFirstLetter = (word) => {
 		return word.charAt(0).toUpperCase() + word.slice(1);
 	};
@@ -78,6 +72,7 @@ function Types() {
 		return arr;
 	};
 
+	// ... Search dud
 	let searchTypes = (e) => {
 		let filter = e.target.value.toLowerCase();
 		let filteredTypes = types.map((type) => {

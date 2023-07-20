@@ -7,11 +7,11 @@ import { AppFooter } from "./components/layouts/Footer.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Context
-import { TypesProvider } from "./context/TypesContext.jsx";
+import { TypeViewProvider } from "./context/TypeViewContext.jsx";
 
 function App() {
 	return (
-		<TypesProvider>
+		<TypeViewProvider>
 			<BrowserRouter>
 				{/* NAVBAR */}
 				<Navbar />
@@ -31,7 +31,7 @@ function App() {
 				{/* FOOTER */}
 				<AppFooter />
 			</BrowserRouter>
-		</TypesProvider>
+		</TypeViewProvider>
 	);
 }
 

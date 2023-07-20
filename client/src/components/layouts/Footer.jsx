@@ -6,7 +6,7 @@ import { Layout } from "antd";
 const { Footer } = Layout;
 
 // Context
-import { TypesContext } from "../../context/TypesContext";
+import { TypeViewContext } from "../../context/TypeViewContext";
 
 //=============================================
 //					Main
@@ -14,7 +14,7 @@ import { TypesContext } from "../../context/TypesContext";
 
 export const AppFooter = () => {
 	// Context
-	const { typeView } = useContext(TypesContext);
+	const { typeView } = useContext(TypeViewContext);
 
 	// Return
 	return (

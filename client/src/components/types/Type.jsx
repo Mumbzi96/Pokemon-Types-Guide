@@ -4,7 +4,7 @@
 import React from "react";
 // Context
 import { useContext } from "react";
-import { TypesContext } from "../../context/TypesContext";
+import { TypeViewContext } from "../../context/TypeViewContext";
 
 // SVGs
 import bug from "../../assets/icons/bug.svg";
@@ -35,7 +35,7 @@ import "./Types.css";
 
 function Type(props) {
 	// Context
-	const { showDetails } = useContext(TypesContext);
+	const { showDetails } = useContext(TypeViewContext);
 
 	// Getting SVGs to use in the type
 	const svgs = {

@@ -5,12 +5,12 @@ import React, { useState } from "react";
 import { createContext } from "react";
 
 // Context
-export const TypesContext = createContext();
+export const TypeViewContext = createContext();
 
 //=============================================
 //					Main
 //=============================================
-export const TypesProvider = (props) => {
+export const TypeViewProvider = (props) => {
 	//==================
 	//	  Properties
 	//==================
@@ -57,22 +57,32 @@ export const TypesProvider = (props) => {
 		return arr;
 	};
 
+	let clearDetails = () => {
+		setTypeView(() => {
+			setTypeViewLoading(false);
+			return null;
+		});
+	};
+
 	//==================
 	//	 	Return
 	//==================
 
 	return (
-		<TypesContext.Provider
+		<TypeViewContext.Provider
 			value={{
+				// State
 				typeView,
 				setTypeView,
 				typeViewLoading,
 				setTypeViewLoading,
+				// methods
 				showDetails,
 				sortArray,
+				clearDetails,
 			}}
 		>
 			{props.children}
-		</TypesContext.Provider>
+		</TypeViewContext.Provider>
 	);
 };

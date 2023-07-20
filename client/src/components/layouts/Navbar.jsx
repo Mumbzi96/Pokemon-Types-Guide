@@ -11,7 +11,7 @@ const { Header } = Layout;
 import "../types/Types.css";
 
 // Context
-import { TypesContext } from "../../context/TypesContext";
+import { TypeViewContext } from "../../context/TypeViewContext";
 
 //=============================================
 //					Main
@@ -19,7 +19,8 @@ import { TypesContext } from "../../context/TypesContext";
 
 function Navbar() {
 	// context
-	const { typeView } = useContext(TypesContext);
+	const { typeView } = useContext(TypeViewContext);
+
 	// return
 	return (
 		<Header className={typeView ? typeView.name : "noType"} style={headerStyle}>

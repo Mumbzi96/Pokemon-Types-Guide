@@ -18,14 +18,13 @@ import { faSpinner, faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import { TypesContext } from "../../context/TypesContext";
 
 function Types() {
-	// const [typeView, setTypeView] = useState();
-	// const [typeViewLoading, setTypeViewLoading] = useState(false);
-	const [typeView, setTypeView] = useContext(TypesContext);
-	const [typeViewLoading, setTypeViewLoading] = useContext(TypesContext);
+	// Context
+	const { typeView, setTypeView } = useContext(TypesContext);
+	const { typeViewLoading, setTypeViewLoading } = useContext(TypesContext);
+	const { sortArray } = useContext(TypesContext);
+	// State
 	const [types, setTypes] = useState([]);
 	const [typesLoading, setTypesLoading] = useState(true);
-
-	//
 
 	// component did mount
 	useEffect(() => {
@@ -47,28 +46,6 @@ function Types() {
 		getTypes();
 	}, []);
 
-	let showDetails = async (type) => {
-		setTypeViewLoading(true);
-		// Get type data
-		fetch(`/api/types/${type}`)
-			.then((data) => data.json())
-			.then((data) => {
-				data.strongAgainst = sortArray(data.strongAgainst);
-				data.weakAgainst = sortArray(data.weakAgainst);
-				data.noEffectFrom = sortArray(data.noEffectFrom);
-				data.noEffectAgainst = sortArray(data.noEffectAgainst);
-
-				//
-				setTypeViewLoading(false);
-				//
-				setTypeView(() => {
-					return data;
-				});
-			})
-			.catch((err) => console.log(err));
-		//
-	};
-
 	let clearDetails = () => {
 		setTypeView(() => {
 			setTypeViewLoading(false);
@@ -78,21 +55,6 @@ function Types() {
 
 	let capitalizeFirstLetter = (word) => {
 		return word.charAt(0).toUpperCase() + word.slice(1);
-	};
-
-	let sortArray = (arr, property) => {
-		arr = arr.sort((a, b) => {
-			if (property) {
-				if (a[property] > b[property]) return 1;
-				else if (a[property] < b[property]) return -1;
-				else return 0;
-			} else {
-				if (a > b) return 1;
-				else if (a < b) return -1;
-				else return 0;
-			}
-		});
-		return arr;
 	};
 
 	// used to add the show property to use for hiding and showing certain types
@@ -215,7 +177,7 @@ function Types() {
 								<Fragment key={type.name}>
 									{type.show == true ? (
 										<Col span={3}>
-											<Type showDetails={showDetails} type={type} />
+											<Type type={type} />
 											<Divider />
 										</Col>
 									) : (

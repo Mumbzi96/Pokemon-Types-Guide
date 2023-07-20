@@ -1,21 +1,18 @@
 import React, { useContext } from "react";
 
 // Antd
-import { Layout, Space } from "antd";
+import { Layout } from "antd";
 const { Header } = Layout;
 
 // CSS
 import "../types/Types.css";
-
-// React Router
-import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 
 // Context
 import { TypesContext } from "../../context/TypesContext";
 
 function Navbar() {
 	//
-	const [typeView, setTypeView] = useContext(TypesContext);
+	const { typeView, setTypeView } = useContext(TypesContext);
 	//
 	return (
 		<Header className={typeView ? typeView.name : "noType"} style={headerStyle}>

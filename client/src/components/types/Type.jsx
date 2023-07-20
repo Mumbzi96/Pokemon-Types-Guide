@@ -1,8 +1,7 @@
 import React from "react";
-
-// antd
-import { Card, Col, Row } from "antd";
-import { Avatar, List } from "antd";
+// Context
+import { useContext } from "react";
+import { TypesContext } from "../../context/TypesContext";
 
 // SVGs
 import bug from "../../assets/icons/bug.svg";
@@ -28,6 +27,10 @@ import water from "../../assets/icons/water.svg";
 import "./Types.css";
 
 function Type(props) {
+	//
+	const { showDetails } = useContext(TypesContext);
+
+	//
 	const svgs = {
 		bug,
 		dark,
@@ -50,11 +53,12 @@ function Type(props) {
 	};
 	const { name } = props.type;
 
-	const showDetails = () => {
-		props.showDetails(name);
-	};
 	return (
-		<div onClick={showDetails}>
+		<div
+			onClick={() => {
+				showDetails(name);
+			}}
+		>
 			<img className={name} src={svgs[name]} width='30px' />
 			<p> {name.charAt(0).toUpperCase() + name.slice(1)}</p>
 		</div>

@@ -1,30 +1,22 @@
-import { useState } from "react";
-// Antd
-import { Layout, Space } from "antd";
-// const { Header, Footer, Sider, Content } = Layout;
-
 // Components
 import Types from "./components/types/Types.jsx";
 import About from "./pages/About.jsx";
 import Navbar from "./components/layouts/Navbar.jsx";
 import { AppFooter } from "./components/layouts/Footer.jsx";
 
-// Pages
-// import Home from './pages/Home'
-import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
-// import About from "./pages/About";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Context
 import { TypesProvider } from "./context/TypesContext.jsx";
 
 function App() {
-	// const [count, setCount] = useState(0)
-
 	return (
 		<TypesProvider>
 			<BrowserRouter>
+				{/* NAVBAR */}
 				<Navbar />
 				<Routes>
+					{/* MAIN PAGE */}
 					<Route
 						index
 						element={
@@ -33,8 +25,10 @@ function App() {
 							</>
 						}
 					/>
+					{/* ABOUT PAGE */}
 					<Route path='about' element={<About />} />
 				</Routes>
+				{/* FOOTER */}
 				<AppFooter />
 			</BrowserRouter>
 		</TypesProvider>
@@ -43,10 +37,7 @@ function App() {
 
 // Styles
 const contentStyle = {
-	// textAlign: "center",
-	// minHeight: 100,
 	lineHeight: "10px",
-	// color: "#fff",
 	backgroundColor: "#fff",
 };
 

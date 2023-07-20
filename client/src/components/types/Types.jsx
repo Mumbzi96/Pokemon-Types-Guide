@@ -96,22 +96,6 @@ function Types() {
 	//==================
 	return (
 		<>
-			{/* Search */}
-			{/* Search */}
-			<div>
-				<br />
-				<Form.Item
-					label='Search'
-					name='type'
-					rules={[
-						{
-							message: "Search for the type directly",
-						},
-					]}
-				>
-					<Input onChange={searchTypes} />
-				</Form.Item>
-			</div>
 			{/* TYPE CARD */}
 			{/* TYPE CARD */}
 			{typeViewLoading == true ? (
@@ -177,6 +161,23 @@ function Types() {
 				</>
 			)}
 			<br />
+
+			{/* Search */}
+			{/* Search */}
+			<div>
+				<br />
+				<Form.Item
+					label='Search'
+					name='type'
+					rules={[
+						{
+							message: "Search for the type directly",
+						},
+					]}
+				>
+					<Input onChange={searchTypes} />
+				</Form.Item>
+			</div>
 
 			{/* MAPPING TYPES */}
 			{/* MAPPING TYPES */}

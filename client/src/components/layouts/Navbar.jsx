@@ -18,7 +18,7 @@ function Navbar() {
 	const [typeView, setTypeView] = useContext(TypesContext);
 	//
 	return (
-		<Header className={typeView ? typeView.name : null} style={headerStyle}>
+		<Header className={typeView ? typeView.name : "noType"} style={headerStyle}>
 			<h1>Pokemon Types Guide</h1>
 		</Header>
 	);

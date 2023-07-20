@@ -1,12 +1,13 @@
 import { useState } from "react";
 // Antd
 import { Layout, Space } from "antd";
-const { Header, Footer, Sider, Content } = Layout;
+// const { Header, Footer, Sider, Content } = Layout;
 
 // Components
 import Types from "./components/types/Types.jsx";
 import About from "./pages/About.jsx";
 import Navbar from "./components/layouts/Navbar.jsx";
+import { AppFooter } from "./components/layouts/Footer.jsx";
 
 // Pages
 // import Home from './pages/Home'
@@ -34,7 +35,7 @@ function App() {
 					/>
 					<Route path='about' element={<About />} />
 				</Routes>
-				<Footer style={footerStyle}>Made for fun</Footer>
+				<AppFooter />
 			</BrowserRouter>
 		</TypesProvider>
 	);
@@ -47,12 +48,6 @@ const contentStyle = {
 	lineHeight: "10px",
 	// color: "#fff",
 	backgroundColor: "#fff",
-};
-
-const footerStyle = {
-	textAlign: "center",
-	color: "#fff",
-	backgroundColor: "#7dbcea",
 };
 
 const siderStyle = {

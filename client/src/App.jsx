@@ -19,18 +19,17 @@ function App() {
 	return (
 		<BrowserRouter>
 			<Navbar />
-			{/* Nav Link */}
-			{/* <NavLink to='/'>Home &ensp;</NavLink>
-			<NavLink to='about'>About</NavLink> */}
-			{/* Body */}
 			<Routes>
-				<Route index element={<><Types /></>} />
+				<Route
+					index
+					element={
+						<>
+							<Types />
+						</>
+					}
+				/>
 				<Route path='about' element={<About />} />
 			</Routes>
-			{/* <Content style={contentStyle}>
-				<Types />
-			</Content> */}
-			{/* Footer */}
 			<Footer style={footerStyle}>Made for fun</Footer>
 		</BrowserRouter>
 	);
@@ -52,10 +51,10 @@ const footerStyle = {
 };
 
 const siderStyle = {
-	textAlign: 'center',
-	lineHeight: '120px',
-	color: '#fff',
-	backgroundColor: '#3ba0e9',
-  };
+	textAlign: "center",
+	lineHeight: "120px",
+	color: "#fff",
+	backgroundColor: "#3ba0e9",
+};
 
 export default App;

@@ -20,6 +20,7 @@ function Types() {
 	const [types, setTypes] = useState([]);
 	const [typesLoading, setTypesLoading] = useState(true);
 
+	// component did mount
 	useEffect(() => {
 		async function getTypes() {
 			// Get Types from API
@@ -118,18 +119,18 @@ function Types() {
 			{/* Search */}
 			{/* Search */}
 			<div>
-				<br/>
-			<Form.Item
-				label='Search'
-				name='type'
-				rules={[
-					{
-						message: "Search for the type directly",
-					},
-				]}
-			>
-				<Input onChange={searchTypes} />
-			</Form.Item>
+				<br />
+				<Form.Item
+					label='Search'
+					name='type'
+					rules={[
+						{
+							message: "Search for the type directly",
+						},
+					]}
+				>
+					<Input onChange={searchTypes} />
+				</Form.Item>
 			</div>
 			{/* TYPE CARD */}
 			{/* TYPE CARD */}

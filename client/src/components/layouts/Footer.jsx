@@ -1,14 +1,22 @@
+//=============================================
+//					Requirements
+//=============================================
 import { useContext } from "react";
-import { Layout, Space } from "antd";
+import { Layout } from "antd";
 const { Footer } = Layout;
 
 // Context
 import { TypesContext } from "../../context/TypesContext";
 
+//=============================================
+//					Main
+//=============================================
+
 export const AppFooter = () => {
-	//
-	const { typeView, setTypeView } = useContext(TypesContext);
-	//
+	// Context
+	const { typeView } = useContext(TypesContext);
+
+	// Return
 	return (
 		<Footer className={typeView ? typeView.name : "noType"} style={footerStyle}>
 			Made for fun
@@ -16,8 +24,11 @@ export const AppFooter = () => {
 	);
 };
 
+//=============================================
+//					Styles
+//=============================================
+
 const footerStyle = {
 	textAlign: "center",
 	color: "#fff",
-	// backgroundColor: "#7dbcea",
 };

@@ -1,3 +1,6 @@
+//=============================================
+//					Requirements
+//=============================================
 import React, { useContext } from "react";
 
 // Antd
@@ -10,10 +13,14 @@ import "../types/Types.css";
 // Context
 import { TypesContext } from "../../context/TypesContext";
 
+//=============================================
+//					Main
+//=============================================
+
 function Navbar() {
-	//
-	const { typeView, setTypeView } = useContext(TypesContext);
-	//
+	// context
+	const { typeView } = useContext(TypesContext);
+	// return
 	return (
 		<Header className={typeView ? typeView.name : "noType"} style={headerStyle}>
 			<h1>Pokemon Types Guide</h1>
@@ -21,7 +28,9 @@ function Navbar() {
 	);
 }
 
-// Design
+//=============================================
+//					Design
+//=============================================
 const headerStyle = {
 	textAlign: "center",
 	color: "#fff",

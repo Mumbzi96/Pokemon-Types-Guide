@@ -1,13 +1,25 @@
+//=============================================
+//					Requirements
+//=============================================
 import React, { useState } from "react";
 import { createContext } from "react";
 
 // Context
 export const TypesContext = createContext();
 
+//=============================================
+//					Main
+//=============================================
 export const TypesProvider = (props) => {
+	//==================
+	//	  Properties
+	//==================
 	const [typeView, setTypeView] = useState();
 	const [typeViewLoading, setTypeViewLoading] = useState(false);
 
+	//==================
+	//	  Methods
+	//==================
 	const showDetails = async (type) => {
 		setTypeViewLoading(true);
 		// Get type data
@@ -45,6 +57,10 @@ export const TypesProvider = (props) => {
 		return arr;
 	};
 
+	//==================
+	//	 	Return
+	//==================
+
 	return (
 		<TypesContext.Provider
 			value={{
@@ -53,7 +69,7 @@ export const TypesProvider = (props) => {
 				typeViewLoading,
 				setTypeViewLoading,
 				showDetails,
-				sortArray
+				sortArray,
 			}}
 		>
 			{props.children}

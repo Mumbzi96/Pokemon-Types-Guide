@@ -1,3 +1,6 @@
+//=============================================
+//					Requirements
+//=============================================
 import React from "react";
 // Context
 import { useContext } from "react";
@@ -26,11 +29,15 @@ import water from "../../assets/icons/water.svg";
 // CSS
 import "./Types.css";
 
+//=============================================
+//					Main
+//=============================================
+
 function Type(props) {
-	//
+	// Context
 	const { showDetails } = useContext(TypesContext);
 
-	//
+	// Getting SVGs to use in the type
 	const svgs = {
 		bug,
 		dark,
@@ -51,15 +58,20 @@ function Type(props) {
 		steel,
 		water,
 	};
+
+	//
 	const { name } = props.type;
 
+	// return
 	return (
 		<div
 			onClick={() => {
 				showDetails(name);
 			}}
 		>
+			{/* type's image gets background color & source based on className  */}
 			<img className={name} src={svgs[name]} width='30px' />
+			{/* Show name */}
 			<p> {name.charAt(0).toUpperCase() + name.slice(1)}</p>
 		</div>
 	);

@@ -35,17 +35,4 @@ function App() {
 	);
 }
 
-// Styles
-const contentStyle = {
-	lineHeight: "10px",
-	backgroundColor: "#fff",
-};
-
-const siderStyle = {
-	textAlign: "center",
-	lineHeight: "120px",
-	color: "#fff",
-	backgroundColor: "#3ba0e9",
-};
-
 export default App;

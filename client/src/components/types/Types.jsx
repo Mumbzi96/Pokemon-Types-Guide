@@ -1,23 +1,33 @@
+//=============================================
+//					Requirements
+//=============================================
 import React, { Fragment, useContext } from "react";
 import { useState, useEffect } from "react";
+
 // antd
-import { Divider, Space, Card } from "antd";
-import { Button, Checkbox, Form, Input } from "antd";
+import { Divider, Card } from "antd";
+import { Form, Input } from "antd";
 import { Col, Row } from "antd";
+
 // Components
 import Type from "./Type";
-// import data from "../../data/pokemon_types.json";
-// CSS
+
+// Fontawesome
 import "./Types.css";
-// SVG
-// font/fort awesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner, faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 
 // Context
 import { TypesContext } from "../../context/TypesContext";
 
+//=============================================
+//					Main
+//=============================================
+
 function Types() {
+	//==================
+	//	  Properties
+	//==================
 	// Context
 	const { typeView, setTypeView } = useContext(TypesContext);
 	const { typeViewLoading, setTypeViewLoading } = useContext(TypesContext);
@@ -26,6 +36,9 @@ function Types() {
 	const [types, setTypes] = useState([]);
 	const [typesLoading, setTypesLoading] = useState(true);
 
+	//==================
+	//	 	Methods
+	//==================
 	// component did mount
 	useEffect(() => {
 		async function getTypes() {
@@ -83,6 +96,9 @@ function Types() {
 		setTypes(filteredTypes);
 	};
 
+	//==================
+	//	 	Return
+	//==================
 	return (
 		<>
 			{/* Search */}
@@ -204,7 +220,9 @@ function Types() {
 	);
 }
 
-// Styles
+//=============================================
+//					CSS
+//=============================================
 const cardViewStyle = {
 	textAlign: "center",
 	// minHeight: 100,

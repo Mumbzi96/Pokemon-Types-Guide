@@ -15,7 +15,7 @@ import Type from "./Type";
 // Fontawesome
 import "./Types.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSpinner, faCircleXmark } from "@fortawesome/free-solid-svg-icons";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 
 // Context
 import { TypeViewContext } from "../../context/TypeViewContext";
@@ -29,9 +29,7 @@ function Types() {
 	//	  Properties
 	//==================
 	// Context
-	const { typeView } = useContext(TypeViewContext);
-	const { typeViewLoading } = useContext(TypeViewContext);
-	const { sortArray, clearDetails } = useContext(TypeViewContext);
+	const { sortArray } = useContext(TypeViewContext);
 	// State
 	const [types, setTypes] = useState([]);
 	const [typesLoading, setTypesLoading] = useState(true);
@@ -58,11 +56,6 @@ function Types() {
 
 		getTypes();
 	}, []);
-
-	// used to capitalize letter of types
-	let capitalizeFirstLetter = (word) => {
-		return word.charAt(0).toUpperCase() + word.slice(1);
-	};
 
 	// used to add the show property to use for hiding and showing certain types
 	let addShowProperty = (arr) => {
@@ -96,72 +89,6 @@ function Types() {
 	//==================
 	return (
 		<>
-			{/* TYPE CARD */}
-			{/* TYPE CARD */}
-			{typeViewLoading == true ? (
-				<Row>
-					<Col span={6}></Col>
-					<Col span={6}></Col>
-					<Col span={6}>
-						<FontAwesomeIcon icon={faSpinner} spinPulse size='2xl' />
-					</Col>
-					<Col span={6}></Col>
-				</Row>
-			) : typeView == null ? (
-				<></>
-			) : (
-				<>
-					<br />
-					<Card
-						style={cardViewStyle}
-						className={typeView.name}
-						title={capitalizeFirstLetter(typeView.name)}
-						extra={
-							<FontAwesomeIcon
-								onClick={clearDetails}
-								icon={faCircleXmark}
-								size='2xl'
-							/>
-						}
-					>
-						<Row>
-							{/* Strong Against */}
-							<Col span={5}>
-								<h3>Strong Against</h3>
-								{typeView.strongAgainst.map((type) => {
-									return <p>{capitalizeFirstLetter(type)}</p>;
-								})}
-							</Col>
-
-							{/* Weak Against */}
-							<Col span={5}>
-								<h3>Weak Against</h3>
-								{typeView.weakAgainst.map((type) => {
-									return <p>{capitalizeFirstLetter(type)}</p>;
-								})}
-							</Col>
-
-							{/* No Effect From */}
-							<Col span={5}>
-								<h3>No Effect From</h3>
-								{typeView.noEffectFrom.map((type) => {
-									return <p>{capitalizeFirstLetter(type)}</p>;
-								})}
-							</Col>
-
-							{/* No Effect Against */}
-							<Col span={5}>
-								<h3>No Effect Against</h3>
-								{typeView.noEffectAgainst.map((type) => {
-									return <p>{capitalizeFirstLetter(type)}</p>;
-								})}
-							</Col>
-						</Row>
-					</Card>
-				</>
-			)}
-			<br />
-
 			{/* Search */}
 			{/* Search */}
 			<div>
@@ -221,10 +148,6 @@ function Types() {
 //=============================================
 const cardViewStyle = {
 	textAlign: "center",
-	// minHeight: 100,
-	// lineHeight: "10px",
-	// color: "#fff",
-	// backgroundColor: "#fff",
 };
 
 export default Types;

@@ -64,6 +64,11 @@ export const TypeViewProvider = (props) => {
 		});
 	};
 
+	// used to capitalize letter of types
+	let capitalizeFirstLetter = (word) => {
+		return word.charAt(0).toUpperCase() + word.slice(1);
+	};
+
 	//==================
 	//	 	Return
 	//==================
@@ -80,6 +85,7 @@ export const TypeViewProvider = (props) => {
 				showDetails,
 				sortArray,
 				clearDetails,
+				capitalizeFirstLetter,
 			}}
 		>
 			{props.children}

@@ -1,10 +1,13 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 // Components
+import TypeView from "./components/types/TypeView";
 import Types from "./components/types/Types.jsx";
 import About from "./pages/About.jsx";
+
+// Layout Components
 import Navbar from "./components/layouts/Navbar.jsx";
 import { AppFooter } from "./components/layouts/Footer.jsx";
-
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Context
 import { TypeViewProvider } from "./context/TypeViewContext.jsx";
@@ -21,6 +24,7 @@ function App() {
 						index
 						element={
 							<>
+								<TypeView />
 								<Types />
 							</>
 						}
